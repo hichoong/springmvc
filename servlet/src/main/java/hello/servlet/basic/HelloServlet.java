@@ -7,8 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "helloServlet", urlPatterns = "/hello") //
+@WebServlet(name = "helloServlet", urlPatterns = "/hello")
 public class HelloServlet extends HttpServlet {
+
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -16,13 +17,12 @@ public class HelloServlet extends HttpServlet {
         System.out.println("request = " + request);
         System.out.println("response = " + response);
 
-        String name = request.getParameter("name");  //헤더의 요청 파라미터를 가져오는 코드
-        System.out.println("name = " + name);
+        String username = request.getParameter("username");
+        System.out.println("username = " + username);
 
-        //
         response.setContentType("text/plain");
         response.setCharacterEncoding("utf-8");
-        response.getWriter().write("hello " + name);
+        response.getWriter().write("hello " + username);
 
     }
 }
